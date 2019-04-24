@@ -16,14 +16,19 @@ let doorFrames = [];
 let mobSpeed = 20;
 
 function init() {
-
+/*
   Phaser.Canvas.setImageRenderingCrisp(game.canvas);
   game.renderer.renderSession.roundPixels = true;
   game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
   game.scale.align(true, true);
   game.scale.minWidth = game.canvas.width;
   game.scale.minHeight = game.canvas.height;
-
+*/
+Phaser.Canvas.setImageRenderingCrisp(game.canvas);
+game.renderer.renderSession.roundPixels = true;
+game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+game.scale.pageAlignHorizontally = true;
+game.scale.pageAlignVertically = true;
 }
 
 function preload() {
