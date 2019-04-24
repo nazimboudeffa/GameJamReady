@@ -2,6 +2,9 @@ const state = { init, preload, create, update };
 
 const game = new Phaser.Game(400, 288, Phaser.AUTO, 'game', state);
 
+//let currentLevel = 1;
+//let levelsCount = 2;
+
 let layers = {};
 
 let coins;
@@ -16,14 +19,7 @@ let doorFrames = [];
 let mobSpeed = 20;
 
 function init() {
-/*
-  Phaser.Canvas.setImageRenderingCrisp(game.canvas);
-  game.renderer.renderSession.roundPixels = true;
-  game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-  game.scale.align(true, true);
-  game.scale.minWidth = game.canvas.width;
-  game.scale.minHeight = game.canvas.height;
-*/
+
 Phaser.Canvas.setImageRenderingCrisp(game.canvas);
 game.renderer.renderSession.roundPixels = true;
 game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
@@ -38,6 +34,7 @@ function preload() {
   game.load.atlas('atlas', 'assets/sprites.png', 'assets/sprites.json');
   game.load.tilemap(
     'level',
+//    'assets/levels/level'+currentLevel+'.json',
     'assets/levels/level0.json',
     undefined,
     Phaser.Tilemap.TILED_JSON
@@ -52,7 +49,7 @@ function create() {
   resetLocalCounters();
   createLevel();
   createEntities();
-
+  createCountersDisplay();
   cursorKeys = game.input.keyboard.createCursorKeys();
   cursorKeys.up.onDown.add(handlePlayerJump);
 
@@ -69,7 +66,6 @@ function resetLocalCounters() {
 
 }
 
-let currentHealth = 3;
 function resetPlayerHealth(){
   if (currentHealth <= 0) {
     currentHealth = startingHealth;
@@ -162,7 +158,7 @@ function getTileObjectProperties(props) {
 
 }
 
-function createPlayer(x = 0, y = 0, props) {
+function createPlayer(x, y, props) {
   let sprite = game.add.sprite(x, y, 'atlas', playerIdleFrames[0]);
   sprite.anchor.set(.5);
   sprite.x += sprite.width / 2;
