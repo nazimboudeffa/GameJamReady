@@ -11,7 +11,7 @@
 
 ## Cloning
 
-This is a work inspired by the (Phaser CE Platformer Deomonstration)[https://github.com/AdelMahjoub/phaser-ce-platformer-demo}
+This is a work inspired by the (Phaser CE Platformer Deomonstration)[https://github.com/AdelMahjoub/phaser-ce-platformer-demo]
 
 ## The Assets 
 
