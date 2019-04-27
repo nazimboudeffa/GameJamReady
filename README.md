@@ -1,4 +1,4 @@
-# GameJamReady
+# Ready GameJam One
 
 ## The question is :
 
